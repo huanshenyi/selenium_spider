@@ -3,7 +3,7 @@ import time
 from lxml import etree
 from selenium.webdriver.common.by import By
 
-driver_path = r"C:\Users\tian.xiaoyi\Desktop\chromedriver_win32\chromedriver.exe"
+driver_path = r"path"
 driver = webdriver.Chrome(executable_path=driver_path)
 
 
