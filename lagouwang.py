@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
 class LagouSpider(object):
-    driver_path = r"C:\Users\tian.xiaoyi\Desktop\chromedriver_win32\chromedriver.exe"
+    driver_path = r"path"
     def __init__(self):
        self.driver = webdriver.Chrome(
            executable_path=self.driver_path)
