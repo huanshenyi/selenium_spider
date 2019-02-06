@@ -3,6 +3,10 @@ from urllib import request
 from PIL import Image
 import time
 
+"""参考文献
+https://blog.csdn.net/qq_40147863/article/details/82285920
+"""
+
 def main():
     pytesseract.pytesseract.tesseract_cmd = \
         r"C:\Users\tian.xiaoyi\AppData\Local\Tesseract-OCR\tesseract.exe"
