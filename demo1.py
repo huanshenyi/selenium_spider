@@ -93,7 +93,7 @@ driver = webdriver.Chrome(executable_path=driver_path)
 # driver.close()
 
 """画面スクロール(スクロールによるデータ取得用)"""
-driver.execute_script("window.scrollTo(0,document.body.scrollHeigt); var lenOfPage=document.body.scrollHeight; return lenOfPage;")
+driver.execute_script("window.scrollTo(0,document.body.scrollHeight); var lenOfPage=document.body.scrollHeight; return lenOfPage;")
 
 driver.get("https://hlo.tohotheater.jp/net/movie/TNPI3090J01.do")
 html = driver.page_source
