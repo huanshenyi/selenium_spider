@@ -93,7 +93,23 @@ driver = webdriver.Chrome(executable_path=driver_path)
 # driver.close()
 
 """画面スクロール(スクロールによるデータ取得用)"""
-driver.execute_script("window.scrollTo(0,document.body.scrollHeight); var lenOfPage=document.body.scrollHeight; return lenOfPage;")
+# for i in range(1, 3):
+#     browser.execute_script(
+#         "window.scrollTo(0,document.body.scrollHeight); var lenOfPage=document.body.scrollHeight; return lenOfPage;")#
+#     time.sleep(3)
+
+#chromedriver画像のロードしない設定
+chrome_opt = webdriver.ChromeOptions()
+prefs = {"profile.managed_default_content_settings.images": 2}
+chrome_opt.add_experimental_option("prefs", prefs)
+browser = webdriver.Chrome(executable_path='D:\program\spider\chromedriver_win32\chromedriver.exe',chrome_options=chrome_opt)
+browser.get("https://www.taobao.com")
+
+#phantomjs,不可視化のブラウザでクロール(並行処理してると、性能は落ちる)linuxで本領発揮
+browser = webdriver.phantomjs(executable_path='phantomjs driverのpath')
+browser.get('url')
+#ブラウザ表示しないため絶対とじるコードが必要
+browser.quit()
 
 driver.get("https://hlo.tohotheater.jp/net/movie/TNPI3090J01.do")
 html = driver.page_source
