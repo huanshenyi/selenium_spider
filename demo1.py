@@ -105,6 +105,14 @@ chrome_opt.add_experimental_option("prefs", prefs)
 browser = webdriver.Chrome(executable_path='D:\program\spider\chromedriver_win32\chromedriver.exe',chrome_options=chrome_opt)
 browser.get("https://www.taobao.com")
 
+#この要素みえるかどうか判断
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.by import By
+locator = (By.CLASS_NAME, "controls")
+WebDriverWait(driver, 1).until(EC.visibility_of_element_located(locator))
+driver.close()
+
 #phantomjs,不可視化のブラウザでクロール(並行処理してると、性能は落ちる)linuxで本領発揮
 browser = webdriver.phantomjs(executable_path='phantomjs driverのpath')
 browser.get('url')
