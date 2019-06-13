@@ -1,10 +1,20 @@
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
+import os
 
 """スクリーンショットを取る用の関数定義"""
 def screenshot(driver, file_path=None):
-    
+    # もしpathがなければ
+    if file_path == None:
+        project_path = os.path.dirname(os.getcwd())
+        file_path = project_path + '\image\'
+        if not os.path.exists(file_path):
+           os.mkdir(file_path)
+        image_nmae = time.strftime("%Y%m%d-%H%M%S",time.localtime())
+        file_path = file_path + image_name + ".png"
+        print(file_path)
+    driver.save_screenshot(file_path)    
     
 
 try:
