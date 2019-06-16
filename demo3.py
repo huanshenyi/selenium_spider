@@ -14,8 +14,19 @@ def screenshot(driver, file_path=None):
         image_nmae = time.strftime("%Y%m%d-%H%M%S",time.localtime())
         file_path = file_path + image_name + ".png"
         print(file_path)
-    driver.save_screenshot(file_path)    
+    driver.save_screenshot(file_path)
+
+"""cookiesの方式の一つ"""
+def save_cookies(driver):
+    project_path = os.path.dirname(os.getcwd())
+    file_path = project_path+"\cookies\"
+    if not os.path.exists(file_path):
+       os.mkdir(file_path)
+    cookies = driver.get_cookies()
     
+    with open(file_path + "jd.cookies", "w") as c:
+        # jsonのdump方法を使用
+        json.dump(cookies,c)
 
 try:
     driver = webdriver.Chrome("path")
