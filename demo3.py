@@ -16,7 +16,7 @@ def screenshot(driver, file_path=None):
         print(file_path)
     driver.save_screenshot(file_path)
 
-"""cookiesの方式の一つ"""
+"""cookies保存の方式の一つ"""
 def save_cookies(driver):
     project_path = os.path.dirname(os.getcwd())
     file_path = project_path+"\cookies\"
@@ -27,6 +27,27 @@ def save_cookies(driver):
     with open(file_path + "jd.cookies", "w") as c:
         # jsonのdump方法を使用
         json.dump(cookies,c)
+        
+"""cookiesの使用""" 
+def get_url_with_cookies():
+    # cookiesファイル読み込む
+    project_path = os.path.dirname(os.getcwd())
+    file_path = project_path + "/cookies/"
+    cookies_file = file_path + "jd.cookies"
+    jd_cookies_file = open(cookies_file,"r")
+    jd_cookies_str = jd_cookies_file.readline()
+    # cookiesを取得
+    jd_cookies_dict = json.loads(jd_cookies_str)
+    # 一回アクセスしてウェブサイトにある旧のcookiesを削除
+    time.sleep(2)
+    driver.get("https://www.jd.com")
+    driver.delete_all_cookies()
+    # cookiesをdriverに挿入
+    for cookie in jd_cookies_dict:
+        driver.add_cookie(cookie)
+    # ログイン成功してるかどうか確認
+    driver.get(url)
+    
 
 try:
     driver = webdriver.Chrome("path")
