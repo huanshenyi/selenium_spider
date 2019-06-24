@@ -80,6 +80,9 @@ try:
     js = "$('input[id=train_date]').removeAttr('readonly')"
     driver.execute_script(js)
     
+    """要らない要素を排除(xpath)"""
+    $x("//div[@class='ptable-item']//dd[not(@class='Ptable-tips')]")
+    
 finally:
     time.sleep(3)
     driver.quit()
