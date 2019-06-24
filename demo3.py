@@ -75,6 +75,10 @@ try:
             # スクリーンショットを取る用の関数にdriverを渡す
             # 関数を定義するのは多少便利さを増すため
             screenshot(driver)
+   
+    """readonly属性を削除"""
+    js = "$('input[id=train_date]').removeAttr('readonly')"
+    driver.execute_script(js)
     
 finally:
     time.sleep(3)
