@@ -1,0 +1,21 @@
+import pymysql
+# mysqlコンタクト取得
+db_connection = pymysql.connect(
+   host="192.168.1.35",
+   user="admin",
+   password="123456",
+   database="python_ui",
+   charset="utf8"
+)
+# カーソル取得
+cursor = db_connection.cursor()
+# sql文
+sql = "insert into goods(computer_part,computer_info) values ('values_title','values_info')"
+# sql実効
+cursor.execute(sql)
+# sql提出
+db_connection.commit()
+# カーソルをとじる
+cursor.close()
+# コンタクトを閉じる 
+db_connection.close()
