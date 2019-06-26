@@ -105,6 +105,13 @@ try:
     """某elementの兄elementを特定(同じ親element下の該当elementの先頭にあるelementを特定)"""
     $x("//input[id='loginname']/preceding-sibling::*")
     
+    """css select"""
+    $$("div[class=p-price]")
+    """css select一部含む"""
+    $$("DIV[id*fitt]")
+    """css 某detaで始まる"""
+    $$("div[id^=fi]")
+    
    
 finally:
     time.sleep(3)
