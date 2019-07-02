@@ -100,10 +100,10 @@ try:
     $x("//input[@id='loginname']/parent::div")
     
     """某elementの弟elementを特定(同じ親element下の該当elementの後ろにあるelementのこと)"""
-    $x("//input[id='loginname']/following-sibling::div")
+    $x("//input[@id='loginname']/following-sibling::div")
     
     """某elementの兄elementを特定(同じ親element下の該当elementの先頭にあるelementを特定)"""
-    $x("//input[id='loginname']/preceding-sibling::*")
+    $x("//input[@id='loginname']/preceding-sibling::*")
     
     """css select"""
     $$("div[class=p-price]")
