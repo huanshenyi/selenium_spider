@@ -112,6 +112,13 @@ try:
     """css 某detaで始まる"""
     $$("div[id^=fi]")
     
+    """スクロールバーの操作"""
+    # スクロールバーを表示するためにwindowのサイズを決める
+    driver.set_window_size(600,800)
+    # 0は横のパラメーター,10000は縦のパラメタ
+    js = "window.scrollTo(0,10000);"
+    driver.execute_script(js)
+    
    
 finally:
     time.sleep(3)
