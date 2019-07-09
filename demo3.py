@@ -119,6 +119,15 @@ try:
     js = "window.scrollTo(0,10000);"
     driver.execute_script(js)
     
+    """アラートの特定"""
+    alert = driver.switch_to.alert
+    time.sleep(2)
+    # 確認ボタンを押す
+    alert.accept()
+    # キャンセルボタンを押す
+    alert.dismiss()
+    # alertのinputにデーター入力
+    alert.send_keys("asd")
    
 finally:
     time.sleep(3)
