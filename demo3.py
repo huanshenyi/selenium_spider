@@ -55,6 +55,9 @@ try:
     driver.get("url")
     elem = driver.find_element_by_link_text("text")
     
+    # 不特定内容検索
+    elem = driver.find_element_by_partial_link_text("何か")
+    
     """マウスの止まる事件"""
     # マウスを指定されたところへ移動
     ActionChains(driver).move_to_element(elem).perform()
