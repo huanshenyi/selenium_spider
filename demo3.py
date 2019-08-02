@@ -136,8 +136,13 @@ try:
     from selenium.webdriver.support.select import select
     nr = driver.find_element_by_name('NR')
     select = Select(nr)
+    # indexを選択
     select.select_by_index(2)
-   
+    # valueを選択
+    select.select_by_value('20')
+    # 内容選択
+    select.select_by_visible_text('５０個表示')
+    
 finally:
     time.sleep(3)
     driver.quit()
