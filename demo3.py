@@ -131,6 +131,12 @@ try:
     alert.dismiss()
     # alertのinputにデーター入力
     alert.send_keys("asd")
+    
+    """selectの内容選択"""
+    from selenium.webdriver.support.select import select
+    nr = driver.find_element_by_name('NR')
+    select = Select(nr)
+    select.select_by_index(2)
    
 finally:
     time.sleep(3)
