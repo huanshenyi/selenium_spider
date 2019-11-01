@@ -86,6 +86,9 @@ try:
     """要らない要素を排除(xpath)"""
     $x("//div[@class='ptable-item']//dd[not(@class='Ptable-tips')]")
     
+    """とある要素含まない(dd属性下の)""
+    $x("dl//dd[not(contains(@class,'Ptable-tips'))]")
+    
     """elementのクラスなどがスペース入ってる場合class=" class-name " """
     $x("//div[normalize-space(@class)='class-name']")
     
